@@ -1,10 +1,13 @@
 <script setup>
-import JsonData from './components/JSON.vue'
+import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
+// import JsonData from './components/JSON.vue'
 </script>
 
 <template>
   <main>
-    <JsonData />
+    <!-- <JsonData /> -->
+
+    <LibraryRegistrationForm />
   </main>
 </template>
 
