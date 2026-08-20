@@ -17,6 +17,7 @@
               class="form-control"
               id="username"
               v-model="formData.username"
+              required
             >
           </div>
 
@@ -29,6 +30,8 @@
               type="password"
               class="form-control"
               id="password"
+              minlength="4"
+              maxlength="8"
               v-model="formData.password"
             >
           </div>
@@ -39,6 +42,7 @@
               class="form-check-input"
               id="isAustralian"
               v-model="formData.isAustralian"
+              required
             >
 
             <label
@@ -59,6 +63,7 @@
               id="reason"
               rows="3"
               v-model="formData.reason"
+              required
             ></textarea>
           </div>
 
@@ -71,6 +76,7 @@
               class="form-select"
               id="gender"
               v-model="formData.gender"
+              required
             >
               <option value="">Please select</option>
               <option value="female">Female</option>
