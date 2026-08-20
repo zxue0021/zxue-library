@@ -1,12 +1,15 @@
 <template>
   <div class="container mt-5">
+
     <div class="row">
       <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2">
+
         <h1 class="text-center">
           User Information Form / Credentials
         </h1>
 
         <form @submit.prevent="submitForm">
+
           <div class="mb-3">
             <label for="username" class="form-label">
               Username:
@@ -54,10 +57,7 @@
               @change="() => validateResident(true)"
             >
 
-            <label
-              for="isAustralian"
-              class="form-check-label"
-            >
+            <label for="isAustralian" class="form-check-label">
               Australian Resident?
             </label>
 
@@ -101,6 +101,7 @@
               <option value="male">Male</option>
               <option value="other">Other</option>
             </select>
+
             <div v-if="errors.gender" class="text-danger">
               {{ errors.gender }}
             </div>
@@ -120,55 +121,42 @@
           >
             Clear
           </button>
+
         </form>
+
       </div>
     </div>
 
-    <div
-      class="row mt-5"
-      v-if="submittedCards.length"
-    >
-      <div class="d-flex flex-wrap justify-content-start">
-        <div
-          v-for="(card, index) in submittedCards"
-          :key="index"
-          class="card m-2"
-          style="width: 18rem;"
+    <div class="row mt-5" v-if="submittedCards.length">
+      <div class="col-12">
+        <DataTable
+          :value="submittedCards"
+          style="width: 100%"
         >
-          <div class="card-header">
-            User Information
-          </div>
+          <Column field="username" header="Username"></Column>
 
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              Username: {{ card.username }}
-            </li>
+          <Column field="password" header="Password"></Column>
 
-            <li class="list-group-item">
-              Password: {{ card.password }}
-            </li>
+          <Column header="Australian Resident">
+            <template #body="slotProps">
+              {{ slotProps.data.isAustralian ? 'Yes' : 'No' }}
+            </template>
+          </Column>
 
-            <li class="list-group-item">
-              Australian Resident:
-              {{ card.isAustralian ? 'Yes' : 'No' }}
-            </li>
+          <Column field="gender" header="Gender"></Column>
 
-            <li class="list-group-item">
-              Gender: {{ card.gender }}
-            </li>
-
-            <li class="list-group-item">
-              Reason: {{ card.reason }}
-            </li>
-          </ul>
-        </div>
+          <Column field="reason" header="Reason"></Column>
+        </DataTable>
       </div>
     </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
 
 const formData = ref({
   username: '',
