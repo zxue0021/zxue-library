@@ -42,3 +42,5 @@ npm run build
 ```sh
 npm run lint
 ```
+
+Week 4 setup and form testing.
