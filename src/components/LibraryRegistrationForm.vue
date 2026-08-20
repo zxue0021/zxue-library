@@ -205,9 +205,15 @@ const errors = ref({
 })
 
 const validateName = (blur) => {
-  if (formData.value.username.length < 3) {
+  const username = formData.value.username
+
+  if (username.length < 3) {
     if (blur) {
       errors.value.username = 'Name must be at least 3 characters'
+    }
+  } else if (/\d/.test(username)) {
+    if (blur) {
+      errors.value.username = 'Username cannot contain numbers'
     }
   } else {
     errors.value.username = null
@@ -268,9 +274,15 @@ const validateGender = (blur) => {
 }
 
 const validateReason = (blur) => {
-  if (formData.value.reason.length < 10) {
+  const reason = formData.value.reason
+
+  if (reason.length < 10) {
     if (blur) {
       errors.value.reason = 'Reason must be at least 10 characters'
+    }
+  } else if (reason.length > 100) {
+    if (blur) {
+      errors.value.reason = 'Reason must be no more than 100 characters'
     }
   } else {
     errors.value.reason = null
