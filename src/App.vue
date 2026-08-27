@@ -1,18 +1,27 @@
-<script setup>
-import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
-// import JsonData from './components/JSON.vue'
-</script>
-
 <template>
-  <main>
-    <!-- <JsonData /> -->
+  <div class="main-container">
+    <header>
+      <BHeader />
+    </header>
 
-    <LibraryRegistrationForm />
-  </main>
+    <main class="main-box">
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
-<style scoped>
-main {
+<script setup>
+import BHeader from './components/BHeader.vue'
+</script>
+
+<style>
+.main-container {
   width: 100%;
+  min-height: 100vh;
+}
+
+.main-box {
+  width: 100%;
+  padding-bottom: 40px;
 }
 </style>
