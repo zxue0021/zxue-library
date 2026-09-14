@@ -22,6 +22,26 @@
           </router-link>
         </li>
 
+        <li class="nav-item">
+          <router-link
+            to="/fire-register"
+            class="nav-link"
+            active-class="active"
+          >
+            Firebase Register
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link
+            to="/fire-login"
+            class="nav-link"
+            active-class="active"
+          >
+            Firebase Sign In
+          </router-link>
+        </li>
+
         <li
           v-if="!isAuthenticated"
           class="nav-item"
