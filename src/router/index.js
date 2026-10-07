@@ -10,6 +10,7 @@ import AccessDeniedView from '../views/AccessDeniedView.vue'
 import FirebaseRegisterView from '../views/FirebaseRegisterView.vue'
 import FirebaseSigninView from '../views/FirebaseSigninView.vue'
 import AddBookView from '../views/AddBookView.vue'
+import GetBookCountView from '../views/GetBookCountView.vue'
 
 import { isAuthenticated } from '../auth'
 
@@ -51,6 +52,11 @@ const routes = [
     path: '/addbook',
     name: 'AddBook',
     component: AddBookView
+  },
+  {
+    path: '/book-counter',
+    name: 'BookCounter',
+    component: GetBookCountView
   }
 ]
 
